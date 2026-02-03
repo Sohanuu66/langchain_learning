@@ -1,0 +1,17 @@
+Artificial Intelligence (AI) Overview
+
+Artificial Intelligence refers to the ability of machines to perform tasks that typically require human intelligence.
+These tasks include reasoning, learning, perception, and natural language understanding.
+
+AI can be broadly categorized into two types:
+1. Narrow AI: Designed for specific tasks such as image recognition, recommendation systems, or voice assistants.
+2. General AI: A theoretical concept where machines possess human-like cognitive abilities to perform any intellectual task.
+
+Applications of AI span across various fields such as:
+- Healthcare: Disease prediction, diagnostic assistance, and drug discovery.
+- Education: Personalized learning and automated grading systems.
+- Transportation: Autonomous vehicles and traffic optimization.
+- Finance: Fraud detection and risk assessment.
+
+However, AI also presents ethical challenges including data privacy, job displacement, and algorithmic bias.
+Ensuring fairness, transparency, and accountability remains a key focus in responsible AI development.

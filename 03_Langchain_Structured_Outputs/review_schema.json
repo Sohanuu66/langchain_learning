@@ -1,0 +1,61 @@
+{
+  "properties": {
+    "key_themes": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Key Themes",
+      "type": "array"
+    },
+    "summary": {
+      "title": "Summary",
+      "type": "string"
+    },
+    "sentiment": {
+      "enum": [
+        "pos",
+        "neg",
+        "neut"
+      ],
+      "title": "Sentiment",
+      "type": "string"
+    },
+    "pros": {
+      "anyOf": [
+        {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Pros"
+    },
+    "cons": {
+      "anyOf": [
+        {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Cons"
+    }
+  },
+  "required": [
+    "key_themes",
+    "summary",
+    "sentiment",
+    "pros",
+    "cons"
+  ],
+  "title": "Review",
+  "type": "object"
+}

@@ -1,0 +1,31 @@
+{
+  "title": "Review",
+  "type": "object",
+  "properties": {
+    "key_themes": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Give all the key themes or points discussed in the review in a list"
+    },
+    "summary": {
+      "type": "string",
+      "description": "Give a brief summary of the review in 1 to 2 lines"
+    },
+    "sentiment": {
+      "type": "string",
+      "enum": ["pos", "neg", "neut"],
+      "description": "Return the sentiment of the review either as Positive, Negative or Neutral"
+    },
+    "pros": {
+      "type": ["array", "null"],
+      "items": { "type": "string" },
+      "description": "Give all the important pros in a list"
+    },
+    "cons": {
+      "type": ["array", "null"],
+      "items": { "type": "string" },
+      "description": "Extract review analysis. Include `cons` only if the text explicitly has a 'Cons' or 'Drawbacks' heading; otherwise return null."
+    }
+  },
+  "required": ["key_themes", "summary", "sentiment"]
+}
