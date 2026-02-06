@@ -6,12 +6,12 @@ from langchain_community.document_loaders import PyPDFLoader
 from dotenv import load_dotenv
 import os
 
-load_dotenv(dotenv_path=r'C:\Users\asoha\Desktop\cse\AI\.env')
+load_dotenv()
 
 api_key = os.getenv('GEMINI_API_KEY')
 model = ChatGoogleGenerativeAI(model="gemini-2.5-flash", google_api_key=api_key)
 
-loader = PyPDFLoader(r'Langchain_Doc_Loaders\Pdf.pdf')
+loader = PyPDFLoader(r'07_Langchain_Doc_Loaders\Pdf.pdf')
 docs = loader.load()
 # len(docs) = no of pages in pdf    
 
