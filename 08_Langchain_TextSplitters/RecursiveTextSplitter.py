@@ -13,7 +13,7 @@ import os
 # model = ChatGoogleGenerativeAI(model="gemini-2.5-flash", google_api_key=api_key)
 
 loader = DirectoryLoader(
-    path='Langchain_Doc_Loaders',
+    path='07_Langchain_Doc_Loaders',
     glob='text.txt',
     loader_cls=TextLoader
 )

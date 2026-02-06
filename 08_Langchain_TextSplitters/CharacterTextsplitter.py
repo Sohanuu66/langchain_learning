@@ -3,7 +3,7 @@ from langchain_core.prompts import  PromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.runnables import RunnableParallel, RunnablePassthrough, RunnableLambda
 from langchain_community.document_loaders import PyPDFLoader, DirectoryLoader, TextLoader
-from langchain.text_splitter import CharacterTextSplitter
+from langchain_text_splitters import CharacterTextSplitter
 from dotenv import load_dotenv
 import os
 
@@ -13,7 +13,7 @@ import os
 # model = ChatGoogleGenerativeAI(model="gemini-2.5-flash", google_api_key=api_key)
 
 loader = DirectoryLoader(
-    path='Langchain_Doc_Loaders',
+    path='07_Langchain_Doc_Loaders',
     glob='text.txt',
     loader_cls=TextLoader
 )
@@ -29,4 +29,4 @@ splitter = CharacterTextSplitter(
 result = splitter.split_documents(docs)
 # result = splitter.split_text() for text
 print(result)
-print(len(docs))    # combines all the pages of all the pdfs in the given path
+print(len(result))    # combines all the pages of all the pdfs in the given path
