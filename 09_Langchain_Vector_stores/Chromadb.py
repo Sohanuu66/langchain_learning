@@ -5,9 +5,9 @@ from langchain_community.vectorstores import Chroma
 from dotenv import load_dotenv
 import os
 
-load_dotenv(dotenv_path=r'C:\Users\asoha\Desktop\cse\AI\.env')
+load_dotenv()
 
-api_key = os.getenv('GEMINI_API_KEY')  
+api_key = os.getenv('GEMINI_API_KEY')
 
 doc1 = Document(
         page_content="Virat Kohli is one of the most successful and consistent batsmen in IPL history. Known for his aggressive batting style and fitness, he has led the Royal Challengers Bangalore in multiple seasons.",
@@ -34,14 +34,13 @@ docs = [doc1, doc2, doc3, doc4, doc5]
 
 vector_store = Chroma(
     embedding_function=GoogleGenerativeAIEmbeddings(model="models/gemini-embedding-001", google_api_key=api_key),
-    persist_directory=r'Langchain_Retrievers\vector_db',
+    persist_directory=r'09_Langchain_Vector_stores\vector_db',
     collection_name='Cricket'
 )
 
 vector_store.add_documents(docs)
 
-retriever = vector_store.as_retriever(search_kwargs={'k':2})
-
-result = retriever.invoke("tell me about some bowlers in the sport of cricket")
+result = vector_store.similarity_search_with_relevance_scores(query='Tell me about any of the bowlers',k=3)
 
 print(result)
+

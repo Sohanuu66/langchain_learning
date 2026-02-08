@@ -5,7 +5,7 @@ from langchain_community.retrievers import WikipediaRetriever
 from dotenv import load_dotenv
 import os
 
-load_dotenv(dotenv_path=r'C:\Users\asoha\Desktop\cse\AI\.env')
+load_dotenv()
 
 api_key = os.getenv('GEMINI_API_KEY')   
 

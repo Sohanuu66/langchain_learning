@@ -1,4 +1,4 @@
 .env
 .venv/
 CampusX_notes.pdf
-Langchain_Retrievers/vector_db/
+10_Langchain_Retrievers/vector_db/

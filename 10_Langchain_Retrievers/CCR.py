@@ -3,12 +3,12 @@ from langchain_google_genai import GoogleGenerativeAIEmbeddings
 from langchain_core.documents import Document
 from langchain_community.vectorstores import Chroma
 from langchain.retrievers.multi_query import MultiQueryRetriever
-from langchain.retrievers.contextual_compression import ContextualCompressionRetriever
+from langchain_community.retrievers.contextual_compression import ContextualCompressionRetriever
 from langchain.retrievers.document_compressors import LLMChainExtractor
 from dotenv import load_dotenv
 import os
 
-load_dotenv(dotenv_path=r'C:\Users\asoha\Desktop\cse\AI\.env')
+load_dotenv()
 api_key = os.getenv('GEMINI_API_KEY')
 
 docs = [
@@ -38,7 +38,7 @@ docs = [
 
 vector_store = Chroma(
     embedding_function=GoogleGenerativeAIEmbeddings(model="models/gemini-embedding-001", google_api_key=api_key),
-    persist_directory=r'Langchain_Retrievers\vector_db',
+    persist_directory=r'10_Langchain_Retrievers\vector_db',
     collection_name='CCR'
 )
 

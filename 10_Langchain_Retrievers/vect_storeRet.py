@@ -2,12 +2,12 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_google_genai import GoogleGenerativeAIEmbeddings
 from langchain_core.documents import Document
 from langchain_community.vectorstores import Chroma
-from langchain.retrievers.multi_query import MultiQueryRetriever
 from dotenv import load_dotenv
 import os
 
-load_dotenv(dotenv_path=r'C:\Users\asoha\Desktop\cse\AI\.env')
-api_key = os.getenv('GEMINI_API_KEY')
+load_dotenv()
+
+api_key = os.getenv('GEMINI_API_KEY')  
 
 doc1 = Document(
         page_content="Virat Kohli is one of the most successful and consistent batsmen in IPL history. Known for his aggressive batting style and fitness, he has led the Royal Challengers Bangalore in multiple seasons.",
@@ -34,19 +34,16 @@ docs = [doc1, doc2, doc3, doc4, doc5]
 
 vector_store = Chroma(
     embedding_function=GoogleGenerativeAIEmbeddings(model="models/gemini-embedding-001", google_api_key=api_key),
-    persist_directory=r'Langchain_Retrievers\vector_db',
+    persist_directory=r'01_Langchain_Retrievers\vector_db',
     collection_name='Cricket'
 )
 
 vector_store.add_documents(docs)
 
-retriever = vector_store.as_retriever(
-    search_type='mmr',
-    search_kwargs={'k':2, 'lambda_mult':0.8}
-)
-# 1-behaves like similarity search
-# 0-highly diverse
+retriever = vector_store.as_retriever(search_kwargs={'k':2})
+# vector_store.similarity_search(query, k=2)
+# does the same job as above but retriever better as --> Runnable obj --> chains
 
-result = retriever.invoke("tell me about some bowlin the sport of cricket")
+result = retriever.invoke("tell me about some bowlers in the sport of cricket")
 
 print(result)
